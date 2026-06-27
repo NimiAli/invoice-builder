@@ -112,7 +112,16 @@
       "noInvoicesDesc": "Clients with no invoices",
       "noInvoicesText": "Clients who do not have invoices"
     },
-    "noItem": "Selected a client to view details."
+    "noItem": "Selected a client to view details.",
+    "smartFill": {
+      "button": "Smart fill",
+      "error": "Could not extract client info. Check your LLM settings and try again.",
+      "notConfigured": "Configure an LLM in Settings > Smart Fill first.",
+      "parsing": "Recognizing...",
+      "placeholder": "Paste client info here (any format), then click Smart fill to auto-fill the fields.",
+      "success": "Fields filled. Please review before saving.",
+      "title": "Smart fill from pasted text"
+    }
   },
   "common": {
     "accountHolder": "Account holder",
@@ -501,6 +510,14 @@
     "dateFormat": "Date format",
     "language": "Language"
   },
+  "llmConfig": {
+    "apiKey": "API Key",
+    "apiKeyHelper": "Stored locally. Excluded from backup export.",
+    "apiUrl": "Base URL",
+    "apiUrlHelper": "OpenAI-compatible endpoint, e.g. https://api.openai.com/v1",
+    "model": "Model",
+    "modelHelper": "Model name, e.g. gpt-4o-mini"
+  },
   "menuItems": {
     "banks": "Banks",
     "businesses": "Businesses",
@@ -573,6 +590,7 @@
       "export": "Export your data for backup or to use in other applications.",
       "import": "Import your data from other sources or backup files.",
       "languageFormat": "Language, Amount format, Date format.",
+      "llmConfig": "Configure an OpenAI-compatible LLM for smart form filling.",
       "privacyPolicy": "Feel free to go through our privacy policy.",
       "share": "Share this app with your friends.",
       "support": "Report bugs or suggest improvements via GitHub.",
@@ -595,6 +613,7 @@
       "export": "Export",
       "import": "Import",
       "languageFormat": "Language & Format",
+      "llmConfig": "Smart Fill (LLM)",
       "privacyPolicy": "Privacy policy",
       "share": "Share App",
       "support": "Support",

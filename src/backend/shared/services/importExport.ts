@@ -82,9 +82,16 @@ export const exportAllData = async (db: DatabaseAdapter) => {
     const invoiceBusinessSnapshotsModified = invoiceBusinessSnapshots.map(encodeInvoiceBusinessSnapshotExport);
     const invoiceCustomizationsModified = invoiceCustomizations.map(encodeInvoiceCustomizationExport);
 
+    let settingsExport = settingsRow;
+    if (settingsRow && typeof settingsRow === 'object') {
+      const { llmApiKey, ...rest } = settingsRow as Record<string, unknown>;
+      void llmApiKey;
+      settingsExport = rest;
+    }
+
     const payload = {
       presets: presetsModified,
-      settings: settingsRow ?? null,
+      settings: settingsExport ?? null,
       businesses: businessesModified,
       clients,
       invoiceSequences,

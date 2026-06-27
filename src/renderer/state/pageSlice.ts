@@ -158,6 +158,22 @@ export const pageSlice = createSlice({
         amountFormat: action.payload.amountFormat,
         dateFormat: action.payload.dateFormat
       };
+    },
+    setLlmConfig: (
+      state,
+      action: PayloadAction<{
+        llmApiUrl?: string;
+        llmApiKey?: string;
+        llmModel?: string;
+      }>
+    ) => {
+      if (!state.settings) return;
+      state.settings = {
+        ...state.settings,
+        llmApiUrl: action.payload.llmApiUrl,
+        llmApiKey: action.payload.llmApiKey,
+        llmModel: action.payload.llmModel
+      };
     }
   }
 });
@@ -198,6 +214,7 @@ export const {
   setUpdateMessage,
   setCustomInvoiseSettings,
   setLanguageDate,
+  setLlmConfig,
   setCategoryOptions,
   setUnitOptions,
   setBusinessSnapshotOptions,

@@ -24,6 +24,7 @@ import {
   setEInvoiceUBL,
   setEInvoiceXRechnung,
   setLanguageDate,
+  setLlmConfig,
   setMode,
   setPresets,
   setQuotes,
@@ -32,6 +33,7 @@ import {
 } from '../../state/pageSlice';
 import { CustomizeInvoice } from './content/CustomizeInvoice';
 import { LanguageFormat } from './content/LanguageFormat';
+import { LlmConfig } from './content/LlmConfig';
 import { Menu } from './menu/Menu';
 
 export const SettingsPage = () => {
@@ -208,6 +210,19 @@ export const SettingsPage = () => {
     [dispatch]
   );
 
+  const onLlmConfig = useCallback(
+    (data: { llmApiUrl?: string; llmApiKey?: string; llmModel?: string }) => {
+      dispatch(
+        setLlmConfig({
+          llmApiUrl: data.llmApiUrl,
+          llmApiKey: data.llmApiKey,
+          llmModel: data.llmModel
+        })
+      );
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
     if (!hasInitialized.current) {
       hasInitialized.current = true;
@@ -237,6 +252,9 @@ export const SettingsPage = () => {
         break;
       case MenuItemSettings.LanguageFormat:
         rightColumn = <LanguageFormat onLanguageFormat={onLanguageFormat} showBack={!isDesktop} onBack={onBack} />;
+        break;
+      case MenuItemSettings.LlmConfig:
+        rightColumn = <LlmConfig onLlmConfig={onLlmConfig} showBack={!isDesktop} onBack={onBack} />;
         break;
       default:
         rightColumn = <NoItem text={t('app.noItems')} />;

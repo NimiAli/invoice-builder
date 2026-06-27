@@ -112,7 +112,16 @@
       "noInvoicesDesc": "没有发票的客户",
       "noInvoicesText": "没有发票的客户"
     },
-    "noItem": "选择一个客户以查看详情。"
+    "noItem": "选择一个客户以查看详情。",
+    "smartFill": {
+      "button": "智能填充",
+      "error": "无法识别客户信息。请检查大模型设置后重试。",
+      "notConfigured": "请先在「设置 > 智能填充」中配置大模型。",
+      "parsing": "识别中...",
+      "placeholder": "在此粘贴客户信息(任意格式),然后点击「智能填充」自动填入各字段。",
+      "success": "已填充字段,保存前请核对。",
+      "title": "从粘贴文本智能填充"
+    }
   },
   "common": {
     "accountHolder": "账户持有人",
@@ -501,6 +510,14 @@
     "dateFormat": "日期格式",
     "language": "语言"
   },
+  "llmConfig": {
+    "apiKey": "API 密钥",
+    "apiKeyHelper": "本地存储,不会包含在备份导出中。",
+    "apiUrl": "Base URL",
+    "apiUrlHelper": "OpenAI 兼容接口地址,例如 https://api.openai.com/v1",
+    "model": "模型",
+    "modelHelper": "模型名称,例如 gpt-4o-mini"
+  },
   "menuItems": {
     "banks": "银行",
     "businesses": "企业",
@@ -573,6 +590,7 @@
       "export": "导出您的数据以进行备份或在其他应用程序中使用。",
       "import": "从其他来源或备份文件导入您的数据。",
       "languageFormat": "语言、金额格式、日期格式。",
+      "llmConfig": "配置 OpenAI 兼容的大模型,用于智能表单填充。",
       "privacyPolicy": "欢迎查阅我们的隐私政策。",
       "share": "与好友分享本应用。",
       "support": "通过 GitHub 报告错误或提出改进建议。",
@@ -595,6 +613,7 @@
       "export": "导出",
       "import": "导入",
       "languageFormat": "语言与格式",
+      "llmConfig": "智能填充(大模型)",
       "privacyPolicy": "隐私政策",
       "share": "分享应用",
       "support": "支持",

@@ -112,7 +112,16 @@
       "noInvoicesDesc": "Clients sans facture",
       "noInvoicesText": "Clients n’ayant pas de facture"
     },
-    "noItem": "Sélectionnez un client pour afficher les détails."
+    "noItem": "Sélectionnez un client pour afficher les détails.",
+    "smartFill": {
+      "button": "Remplissage intelligent",
+      "error": "Impossible d'extraire les informations du client. Vérifiez vos paramètres LLM et réessayez.",
+      "notConfigured": "Configurez d'abord un LLM dans Paramètres > Remplissage intelligent.",
+      "parsing": "Reconnaissance...",
+      "placeholder": "Collez ici les informations du client (tout format), puis cliquez sur Remplissage intelligent pour remplir les champs automatiquement.",
+      "success": "Champs remplis. Veuillez vérifier avant d'enregistrer.",
+      "title": "Remplissage intelligent à partir du texte collé"
+    }
   },
   "common": {
     "accountHolder": "Titulaire du compte",
@@ -501,6 +510,14 @@
     "dateFormat": "Format de date",
     "language": "Langue"
   },
+  "llmConfig": {
+    "apiKey": "Clé API",
+    "apiKeyHelper": "Stockée localement. Exclue de l'export de sauvegarde.",
+    "apiUrl": "URL de base",
+    "apiUrlHelper": "Point de terminaison compatible OpenAI, ex. https://api.openai.com/v1",
+    "model": "Modèle",
+    "modelHelper": "Nom du modèle, ex. gpt-4o-mini"
+  },
   "menuItems": {
     "banks": "Banques",
     "businesses": "Entreprises",
@@ -573,6 +590,7 @@
       "export": "Exportez vos données pour sauvegarde ou utilisation ailleurs.",
       "import": "Importez vos données depuis d’autres sources ou fichiers de sauvegarde.",
       "languageFormat": "Langue, format des montants, format de date.",
+      "llmConfig": "Configurez un LLM compatible OpenAI pour le remplissage intelligent.",
       "privacyPolicy": "Consultez notre politique de confidentialité.",
       "share": "Partagez cette application avec vos amis.",
       "support": "Signalez des bugs ou proposez des améliorations via GitHub.",
@@ -595,6 +613,7 @@
       "export": "Exporter",
       "import": "Importer",
       "languageFormat": "Langue & Format",
+      "llmConfig": "Remplissage intelligent (LLM)",
       "privacyPolicy": "Politique de confidentialité",
       "share": "Partager l’application",
       "support": "Support",

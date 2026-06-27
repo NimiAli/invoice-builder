@@ -112,7 +112,16 @@
       "noInvoicesDesc": "Kunden ohne Rechnungen",
       "noInvoicesText": "Kunden ohne Rechnungen"
     },
-    "noItem": "Kunde auswählen, um Details anzuzeigen."
+    "noItem": "Kunde auswählen, um Details anzuzeigen.",
+    "smartFill": {
+      "button": "Intelligentes Ausfüllen",
+      "error": "Kundeninformationen konnten nicht erkannt werden. Überprüfen Sie Ihre LLM-Einstellungen und versuchen Sie es erneut.",
+      "notConfigured": "Konfigurieren Sie zuerst ein LLM unter Einstellungen > Intelligentes Ausfüllen.",
+      "parsing": "Wird erkannt...",
+      "placeholder": "Fügen Sie hier die Kundeninformationen ein (beliebiges Format) und klicken Sie auf Intelligentes Ausfüllen, um die Felder automatisch zu füllen.",
+      "success": "Felder ausgefüllt. Bitte vor dem Speichern überprüfen.",
+      "title": "Intelligentes Ausfüllen aus eingefügtem Text"
+    }
   },
   "common": {
     "accountHolder": "Kontoinhaber",
@@ -501,6 +510,14 @@
     "dateFormat": "Datumsformat",
     "language": "Sprache"
   },
+  "llmConfig": {
+    "apiKey": "API-Schlüssel",
+    "apiKeyHelper": "Lokal gespeichert. Vom Backup-Export ausgeschlossen.",
+    "apiUrl": "Basis-URL",
+    "apiUrlHelper": "OpenAI-kompatibler Endpunkt, z. B. https://api.openai.com/v1",
+    "model": "Modell",
+    "modelHelper": "Modellname, z. B. gpt-4o-mini"
+  },
   "menuItems": {
     "banks": "Banken",
     "businesses": "Unternehmen",
@@ -573,6 +590,7 @@
       "export": "Exportieren Sie Ihre Daten zur Sicherung oder zur Verwendung in anderen Anwendungen.",
       "import": "Importieren Sie Ihre Daten aus anderen Quellen oder Sicherungsdateien.",
       "languageFormat": "Sprache, Betragsformat, Datumsformat.",
+      "llmConfig": "Konfigurieren Sie ein OpenAI-kompatibles LLM für intelligentes Ausfüllen.",
       "privacyPolicy": "Lesen Sie unsere Datenschutzrichtlinie.",
       "share": "Teilen Sie diese App mit Ihren Freunden.",
       "support": "Fehler melden oder Verbesserungen über GitHub vorschlagen.",
@@ -595,6 +613,7 @@
       "export": "Exportieren",
       "import": "Importieren",
       "languageFormat": "Sprache & Format",
+      "llmConfig": "Intelligentes Ausfüllen (LLM)",
       "privacyPolicy": "Datenschutzrichtlinie",
       "share": "App teilen",
       "support": "Support",

@@ -1,12 +1,14 @@
-import { FormControlLabel, Grid, Switch, TextField } from '@mui/material';
+import { AutoFixHigh } from '@mui/icons-material';
+import { Box, Button, CircularProgress, FormControlLabel, Grid, Switch, TextField } from '@mui/material';
 import { useEffect, useRef, useState, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from '../../shared/hooks/form/useForm';
 import { useFormDirtyCheck } from '../../shared/hooks/form/useFormDirtyCheck';
 import type { Client, ClientFromData } from '../../shared/types/client';
+import { smartFillClient } from '../../shared/utils/llmFunctions';
 import { validators } from '../../shared/utils/validatorFunctions';
-import { useAppSelector } from '../../state/configureStore';
-import { selectSettings } from '../../state/pageSlice';
+import { useAppDispatch, useAppSelector } from '../../state/configureStore';
+import { addToast, selectSettings } from '../../state/pageSlice';
 
 interface Props {
   client?: Client;
@@ -16,6 +18,9 @@ export const Form: FC<Props> = ({ handleChange = () => {}, client }) => {
   const { t } = useTranslation();
   const initialFormRef = useRef<ClientFromData | undefined>(undefined);
   const settings = useAppSelector(selectSettings);
+  const dispatch = useAppDispatch();
+  const [smartFillText, setSmartFillText] = useState('');
+  const [smartFillLoading, setSmartFillLoading] = useState(false);
   const { form, setForm, update } = useForm<ClientFromData>({
     id: client?.id,
     email: client?.email ?? '',
@@ -63,6 +68,34 @@ export const Form: FC<Props> = ({ handleChange = () => {}, client }) => {
 
   useFormDirtyCheck(form, initialFormRef);
 
+  const handleSmartFill = async () => {
+    if (smartFillText.trim() === '') return;
+    if (!settings?.llmApiUrl || !settings?.llmModel) {
+      dispatch(addToast({ message: t('clients.smartFill.notConfigured'), severity: 'warning' }));
+      return;
+    }
+    setSmartFillLoading(true);
+    try {
+      const parsed = await smartFillClient(smartFillText, {
+        apiUrl: settings.llmApiUrl,
+        apiKey: settings.llmApiKey,
+        model: settings.llmModel
+      });
+      if (Object.keys(parsed).length === 0) {
+        dispatch(addToast({ message: t('clients.smartFill.error'), severity: 'error' }));
+        return;
+      }
+      setForm(prev => ({ ...prev, ...parsed }));
+      dispatch(addToast({ message: t('clients.smartFill.success'), severity: 'success' }));
+    } catch (error) {
+      const err = error instanceof Error ? error.message : String(error);
+      console.error('SmartFill error:', err);
+      dispatch(addToast({ message: t('clients.smartFill.error'), severity: 'error' }));
+    } finally {
+      setSmartFillLoading(false);
+    }
+  };
+
   useEffect(() => {
     const initial = {
       id: client?.id,
@@ -106,6 +139,31 @@ export const Form: FC<Props> = ({ handleChange = () => {}, client }) => {
 
   return (
     <Grid container spacing={2}>
+      {settings?.llmApiUrl && settings?.llmModel && (
+        <Grid size={{ xs: 12 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <TextField
+              multiline
+              rows={3}
+              fullWidth
+              label={t('clients.smartFill.title')}
+              placeholder={t('clients.smartFill.placeholder')}
+              value={smartFillText}
+              onChange={e => setSmartFillText(e.target.value)}
+            />
+            <Box>
+              <Button
+                variant="outlined"
+                startIcon={smartFillLoading ? <CircularProgress size={16} /> : <AutoFixHigh />}
+                disabled={smartFillLoading || smartFillText.trim() === ''}
+                onClick={handleSmartFill}
+              >
+                {smartFillLoading ? t('clients.smartFill.parsing') : t('clients.smartFill.button')}
+              </Button>
+            </Box>
+          </Box>
+        </Grid>
+      )}
       <Grid size={{ xs: 12, md: 6 }}>
         <TextField
           label={t('common.name')}

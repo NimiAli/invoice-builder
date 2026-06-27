@@ -1,5 +1,6 @@
 import { DarkMode, Description, FileDownload, Language, LightMode } from '@mui/icons-material';
 import AssessmentIcon from '@mui/icons-material/Assessment';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import CoffeeIcon from '@mui/icons-material/Coffee';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
@@ -74,6 +75,14 @@ export const Menu: FC<Props> = ({
           isToggle: false,
           isSelected: MenuItemSettings.Receipt === selectedMenu,
           onClick: () => onSelected(MenuItemSettings.Receipt)
+        },
+        {
+          text: t('settingsMenuItems.titles.llmConfig'),
+          description: t('settingsMenuItems.descriptions.llmConfig'),
+          icon: <AutoFixHighIcon />,
+          isToggle: false,
+          isSelected: MenuItemSettings.LlmConfig === selectedMenu,
+          onClick: () => onSelected(MenuItemSettings.LlmConfig)
         },
         {
           text: t('settingsMenuItems.titles.darkMode'),

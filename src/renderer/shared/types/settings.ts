@@ -19,6 +19,9 @@ export interface Settings {
   xrechnungON: boolean;
   presetsON: boolean;
   reportsON: boolean;
+  llmApiUrl?: string;
+  llmApiKey?: string;
+  llmModel?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -39,4 +42,7 @@ export interface SettingsUpdate {
   xrechnungON?: boolean;
   presetsON?: boolean;
   reportsON?: boolean;
+  llmApiUrl?: string;
+  llmApiKey?: string;
+  llmModel?: string;
 }

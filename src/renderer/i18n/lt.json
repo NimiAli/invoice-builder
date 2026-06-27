@@ -112,7 +112,16 @@
       "noInvoicesDesc": "Klientai, neturintys sąskaitų",
       "noInvoicesText": "Klientai be sąskaitų"
     },
-    "noItem": "Pasirinkite klientą, kad pamatytumėte detales."
+    "noItem": "Pasirinkite klientą, kad pamatytumėte detales.",
+    "smartFill": {
+      "button": "Išmanus pildymas",
+      "error": "Nepavyko atpažinti kliento informacijos. Patikrinkite LLM nustatymus ir bandykite dar kartą.",
+      "notConfigured": "Pirma sukonfigūruokite LLM skiltyje Nustatymai > Išmanus pildymas.",
+      "parsing": "Atpažįstama...",
+      "placeholder": "Įklijuokite kliento informaciją čia (bet kokiu formatu), tada spustelėkite „Išmanus pildymas“, kad laukai būtų užpildyti automatiškai.",
+      "success": "Laukai užpildyti. Prieš išsaugodami patikrinkite.",
+      "title": "Išmanus pildymas iš įklijuoto teksto"
+    }
   },
   "common": {
     "accountHolder": "Sąskaitos savininkas",
@@ -501,6 +510,14 @@
     "dateFormat": "Datos formatas",
     "language": "Kalba"
   },
+  "llmConfig": {
+    "apiKey": "API raktas",
+    "apiKeyHelper": "Saugoma vietoje. Neįtraukiama į atsarginės kopijos eksportą.",
+    "apiUrl": "Pagrindinis URL",
+    "apiUrlHelper": "Su OpenAI suderinama galinė stotis, pvz. https://api.openai.com/v1",
+    "model": "Modelis",
+    "modelHelper": "Modelio pavadinimas, pvz. gpt-4o-mini"
+  },
   "menuItems": {
     "banks": "Bankai",
     "businesses": "Įmonės",
@@ -573,6 +590,7 @@
       "export": "Eksportuokite savo duomenis atsarginei kopijai arba naudoti kitose programose.",
       "import": "Importuokite savo duomenis iš kitų šaltinių arba atsarginių kopijų.",
       "languageFormat": "Kalba, sumos formatas, datos formatas.",
+      "llmConfig": "Sukonfigūruokite su OpenAI suderinamą LLM išmaniam formų pildymui.",
       "privacyPolicy": "Susipažinkite su mūsų privatumo politika apie tai, kaip tvarkome jūsų duomenis.",
       "share": "Bendrinkite šią programą su draugais.",
       "support": "Praneškite apie klaidas arba siūlykite patobulinimus per GitHub.",
@@ -595,6 +613,7 @@
       "export": "Eksportuoti",
       "import": "Importuoti",
       "languageFormat": "Kalba ir formatas",
+      "llmConfig": "Išmanus pildymas (LLM)",
       "privacyPolicy": "Privatumo politika",
       "share": "Bendrinti programą",
       "support": "Pagalba",
