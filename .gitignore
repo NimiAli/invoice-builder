@@ -43,3 +43,4 @@ dist-fe
 dist-be
 dist-electron".npmrc" 
 ".npmrc" 
+.npmrc
