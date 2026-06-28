@@ -1,11 +1,13 @@
 import { config } from 'dotenv';
-import { app, BrowserWindow } from 'electron';
 import { dirname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import { APP_CONFIG } from './config';
 import { initDBDialogsHandlers } from './ipc/dbDialogs';
 
 config();
+
+const electron = require('electron');
+const { app, BrowserWindow } = electron;
 
 const isDev = !app.isPackaged;
 const devServer = APP_CONFIG.FE_SERVER_URL;
