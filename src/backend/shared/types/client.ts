@@ -4,7 +4,12 @@ export interface Client {
   phone?: string;
   name: string;
   shortName: string;
+  companyName?: string;
   address?: string;
+  country?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
   additional?: string;
   vatCode?: string;
   peppolEndpointId?: string;

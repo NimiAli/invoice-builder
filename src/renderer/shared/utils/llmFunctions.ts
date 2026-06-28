@@ -5,7 +5,12 @@ export type ClientSmartFillResult = Partial<
     ClientFromData,
     | 'name'
     | 'shortName'
+    | 'companyName'
     | 'address'
+    | 'country'
+    | 'city'
+    | 'state'
+    | 'postalCode'
     | 'code'
     | 'email'
     | 'phone'
@@ -28,7 +33,12 @@ interface LlmConfig {
 const FIELD_KEYS: Array<keyof ClientSmartFillResult> = [
   'name',
   'shortName',
+  'companyName',
   'address',
+  'country',
+  'city',
+  'state',
+  'postalCode',
   'code',
   'email',
   'phone',
@@ -45,7 +55,12 @@ const SYSTEM_PROMPT = `You extract structured client/customer contact data from 
 Return ONLY a JSON object (no markdown, no code fences, no commentary) with any of these optional string keys:
 - name: full company or person name
 - shortName: a 1-2 character abbreviation/initials (max 2 chars)
-- address: postal address
+- companyName: the legal/registered company name if distinct from name
+- address: postal address (street line)
+- country: full country name
+- city: city / town
+- state: state / province / region
+- postalCode: postal / ZIP code
 - code: client/customer code or registration number
 - email: email address
 - phone: phone number

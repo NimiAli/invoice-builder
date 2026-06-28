@@ -27,8 +27,13 @@ export const Form: FC<Props> = ({ handleChange = () => {}, client }) => {
     phone: client?.phone ?? '',
     name: client?.name ?? '',
     shortName: client?.shortName ?? '',
+    companyName: client?.companyName ?? '',
     code: client?.code ?? '',
     address: client?.address ?? '',
+    country: client?.country ?? '',
+    city: client?.city ?? '',
+    state: client?.state ?? '',
+    postalCode: client?.postalCode ?? '',
     vatCode: client?.vatCode ?? '',
     additional: client?.additional ?? '',
     description: client?.description ?? '',
@@ -103,8 +108,13 @@ export const Form: FC<Props> = ({ handleChange = () => {}, client }) => {
       phone: client?.phone ?? '',
       name: client?.name ?? '',
       shortName: client?.shortName ?? '',
+      companyName: client?.companyName ?? '',
       code: client?.code ?? '',
       address: client?.address ?? '',
+      country: client?.country ?? '',
+      city: client?.city ?? '',
+      state: client?.state ?? '',
+      postalCode: client?.postalCode ?? '',
       vatCode: client?.vatCode ?? '',
       additional: client?.additional ?? '',
       description: client?.description ?? '',
@@ -199,11 +209,51 @@ export const Form: FC<Props> = ({ handleChange = () => {}, client }) => {
       </Grid>
       <Grid size={{ xs: 12, md: 6 }}>
         <TextField
+          label={t('common.companyName')}
+          fullWidth
+          value={form.companyName}
+          onChange={e => update('companyName', e.target.value)}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, md: 6 }}>
+        <TextField
           label={t('common.address')}
           fullWidth
           value={form.address}
           helperText={t('common.addressHelper')}
           onChange={e => update('address', e.target.value)}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, md: 6 }}>
+        <TextField
+          label={t('common.country')}
+          fullWidth
+          value={form.country}
+          onChange={e => update('country', e.target.value)}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, md: 6 }}>
+        <TextField
+          label={t('common.city')}
+          fullWidth
+          value={form.city}
+          onChange={e => update('city', e.target.value)}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, md: 6 }}>
+        <TextField
+          label={t('common.state')}
+          fullWidth
+          value={form.state}
+          onChange={e => update('state', e.target.value)}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, md: 6 }}>
+        <TextField
+          label={t('common.postalCode')}
+          fullWidth
+          value={form.postalCode}
+          onChange={e => update('postalCode', e.target.value)}
         />
       </Grid>
       <Grid size={{ xs: 12, md: 6 }}>

@@ -9,7 +9,12 @@ import { mapDatabaseError } from '../utils/errorFunctions';
 const clientFields: (keyof Client)[] = [
   'name',
   'shortName',
+  'companyName',
   'address',
+  'country',
+  'city',
+  'state',
+  'postalCode',
   'email',
   'phone',
   'code',

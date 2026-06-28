@@ -2,7 +2,12 @@ export interface Client {
   id: number;
   name: string;
   shortName: string;
+  companyName?: string;
   address?: string;
+  country?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
   email?: string;
   phone?: string;
   code?: string;
@@ -23,7 +28,12 @@ export interface Client {
 export interface ClientAdd {
   name: string;
   shortName: string;
+  companyName?: string;
   address?: string;
+  country?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
   email?: string;
   phone?: string;
   code?: string;
@@ -47,7 +57,12 @@ export interface ClientFromData {
   phone?: string;
   name: string;
   shortName: string;
+  companyName?: string;
   address?: string;
+  country?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
   code?: string;
   additional?: string;
   vatCode?: string;
